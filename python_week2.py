@@ -19,3 +19,125 @@ p1 = Person("John", 36)
 
 print(p1.name)
 print(p1.age)
+
+#python str function 
+#The __str__() function controls what should be returned when the object is represented as a string.
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def __str__(self):
+    return f"{self.name}({self.age})"
+
+p1 = Person("John", 36)
+
+print(p1)
+
+#python object 
+#The __object__() function is used to return a string representation of the object.
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def myfunc(self):
+    print("Hello my name is " + self.name)
+
+  def __str__(self):
+    return f"{self.name}({self.age})"
+
+p1 = Person("John", 36)
+p1.myfunc()
+p1.age = 40
+print(p1) 
+
+del p1.age
+del p1
+
+class Person:
+    pass
+
+#python inheritance
+class Person:
+  def __init__(self, fname, lname):
+    self.firstname = fname
+    self.lastname = lname
+
+  def printname(self):
+    print(self.firstname, self.lastname)
+
+
+x = Person("John", "Doe")
+x.printname()
+#creating a child class
+class Student(Person):
+  pass
+
+x = Student("Mike", "Olsen")
+x.printname()
+
+#creating a child class with init function
+def __init__(self, fname, lname):
+    Person.__init__(self, fname, lname)
+x = Student("Mike", "Olsen")
+x.printname()
+
+#using the super() function
+class Student(Person):
+    def __init__(self, fname, lname):
+        super().__init__(fname, lname)
+x = Student("Mike", "Olsen")
+x.printname()
+#python add properties to child class
+class Student(Person):
+    def __init__(self, fname, lname, year):
+        super().__init__(fname, lname)
+        self.graduationyear = year
+
+    def welcome(self):
+        print("Welcome", self.firstname, self.lastname, "to the class of", self.graduationyear)
+
+x = Student("Mike", "Olsen", 2019)
+x.printname()
+x.welcome()
+
+#python encapsulation
+#refers to the bundling of data (attributes) and methods (functions),
+# that operate on the data into a single unit, typically a class.
+
+#public attributes
+class Public:
+    def __init__(self):
+        self.name = "John"  # Public attribute
+
+    def display_name(self):
+        print(self.name)  # Public method
+
+obj = Public()
+obj.display_name()  # Accessible
+print(obj.name)  # Accessible
+
+#protected attributes
+class Protected:
+    def __init__(self):
+        self._age = 30  # Protected attribute
+
+class Subclass(Protected):
+    def display_age(self):
+        print(self._age)  # Accessible in subclass
+
+obj = Subclass()
+obj.display_age()
+
+#private attributes
+class Private:
+    def __init__(self):
+        self.__salary = 50000  # Private attribute
+
+    def salary(self):
+        return self.__salary  # Access through public method
+
+obj = Private()
+print(obj.salary())  # Works
+#print(obj.__salary)  # Raises AttributeError
