@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Members</title>
+</head>
+<body>
+    <h2>All Members</h2>
+    <ul>
+        {% for member in members %}
+            <li>{{ member.name }}</li>  <!-- Change to your model fields -->
+        {% empty %}
+            <li>No members yet</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_member' %}">Add Member</a>
+</body>
+</html>
