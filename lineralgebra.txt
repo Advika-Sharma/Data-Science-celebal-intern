@@ -1,0 +1,172 @@
+# 📘 Linear Algebra for Data Science – Notes
+
+**Last Updated: 16 Apr, 2025**
+
+---
+
+## 📌 Why Linear Algebra?
+
+Linear algebra is essential for:
+
+* Representing data as **vectors and matrices**
+* Performing **scaling, rotation, and projection**
+* Using techniques like **dimensionality reduction** (e.g., PCA)
+
+---
+
+## 🔑 Core Concepts in Linear Algebra
+
+### 1. **Vectors**
+
+* **Definition:** Ordered arrays representing data points or directions.
+* **Usage in DS:** Data points, features, weights in ML models.
+
+**Topics:**
+
+* Vector Operations
+* Vector Norms
+
+---
+
+### 2. **Matrices**
+
+* **Definition:** 2D arrays representing datasets or transformations.
+* **Usage:** Observations as rows; features as columns.
+
+**Topics:**
+
+* Matrix Operations
+* Transpose, Identity, Zero, Sparse Matrix
+* Inverse of a Matrix
+
+---
+
+### 3. **Matrix Decomposition**
+
+* **Purpose:** Simplify matrix operations by breaking into components.
+
+**Types:**
+
+* LU, QR, Cholesky Decomposition
+* Eigenvalue Decomposition
+* Singular Value Decomposition (SVD)
+* Non-Negative Matrix Factorization (NMF)
+
+---
+
+### 4. **Determinants**
+
+* **Definition:** A scalar value representing invertibility.
+* **Importance:** Solving systems of equations, assessing matrix properties.
+
+**Topics:**
+
+* Determinant Properties
+* Invertibility Check
+
+---
+
+### 5. **Eigenvalues & Eigenvectors**
+
+* **Used in:** PCA, stability analysis, feature extraction.
+
+**Topics:**
+
+* How to compute
+* Applications in ML and DS
+
+---
+
+### 6. **Vector Spaces & Subspaces**
+
+* **Vector Space:** Set of vectors that can be scaled and added.
+* **Subspace:** Subset used for transformations and structure analysis.
+
+**Topics:**
+
+* Span, Basis, Dimension
+* Linear Independence
+* Null and Column Spaces
+
+---
+
+### 7. **Systems of Linear Equations**
+
+* **Application:** Regression, optimization, neural nets.
+
+**Methods:**
+
+* Gaussian Elimination
+* Homogeneous Systems
+* Least Squares
+
+---
+
+### 8. **Orthogonality**
+
+* **Definition:** Vectors with zero dot product = orthogonal.
+* **Uses:** Feature selection, model independence, PCA.
+
+**Topics:**
+
+* Orthogonal Vectors, Matrices
+* Orthogonal Projections
+* Gram-Schmidt Process
+
+---
+
+### 9. **Principal Component Analysis (PCA)**
+
+* **Purpose:** Dimensionality reduction
+* **Method:** Use covariance matrix → eigen decomposition → new feature set
+
+**Focus:**
+
+* Covariance Matrix
+* Feature extraction
+* Variance retention
+
+---
+
+### 10. **Optimization**
+
+* **Goal:** Minimize error or cost functions in models.
+
+**Techniques:**
+
+* Gradient Descent
+* Objective/Cost Functions
+* Linear Programming, Simplex Method
+* Newton’s Method, Lagrange Multipliers
+* Conjugate Gradient Method
+
+---
+
+## 🔧 Applications of Linear Algebra in Data Science
+
+| Area                            | Use                                                |
+| ------------------------------- | -------------------------------------------------- |
+| **Recommender Systems**         | Collaborative filtering using matrix factorization |
+| **Dimensionality Reduction**    | PCA reduces features, retains key data             |
+| **NLP**                         | Word embeddings (Word2Vec, GloVe) use vector math  |
+| **Image Processing**            | Filters, transformations, compression              |
+| **Clustering & Classification** | Algorithms like K-means, SVM                       |
+| **Preprocessing**               | Feature scaling, rotation, transformation          |
+
+---
+
+## ⚠️ Challenges in Learning Linear Algebra
+
+* Theoretical complexity (vectors, matrices, transformations)
+* Steep learning curve for topics like **matrix inversion** and **eigen decomposition**
+* Confusion due to its diverse applications across fields
+
+---
+
+## ✅ Summary
+
+Linear Algebra is foundational in data science:
+
+* Powers core ML algorithms
+* Enables transformations and simplification of high-dimensional data
+* Essential for anyone working in analytics, ML, or AI
