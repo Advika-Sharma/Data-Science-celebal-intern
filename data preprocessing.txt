@@ -1,0 +1,124 @@
+## 🔹 **1. Data Cleaning**
+
+* **Purpose:** Remove incorrect, corrupted, or irrelevant records.
+* **Tasks:**
+
+  * Remove duplicates
+  * Correct typos/inconsistencies
+  * Fix formatting errors
+  * Handle missing values
+* **Tools:** `pandas`, `OpenRefine`, `Excel`
+
+---
+
+## 🔹 **2. Data Transformation**
+
+* **Definition:** Converting data into a suitable format or structure.
+* **Types:**
+
+  * **Log Transformation:** Reduces skewness
+  * **Box-Cox Transformation:** Stabilizes variance
+  * **Feature Engineering:** Creating new features (e.g., extracting day/month/year from timestamp)
+
+---
+
+## 🔹 **3. Data Normalization**
+
+* **Goal:** Bring all features to the **same scale** without distorting differences.
+* **Techniques:**
+
+  * **Min-Max Scaling:** Rescales to \[0,1]
+
+    $$
+    x' = \frac{x - x_{min}}{x_{max} - x_{min}}
+    $$
+  * **L2 Normalization:** Scales row vector to unit norm (good for cosine similarity)
+
+---
+
+## 🔹 **4. Data Scaling**
+
+* **Goal:** Standardize features for ML algorithms (especially distance-based ones).
+* **Technique:**
+
+  * **Standardization (Z-score scaling):**
+
+    $$
+    z = \frac{x - \mu}{\sigma}
+    $$
+* **Used In:** KNN, SVM, PCA
+
+---
+
+## 🔹 **5. Data Encoding**
+
+* **Converts categorical data to numerical.**
+* **Methods:**
+
+  * **Label Encoding:** Assigns unique number to each category
+  * **One-Hot Encoding:** Creates binary columns for each category
+  * **Ordinal Encoding:** Maps categories with inherent order
+* **Libraries:** `pandas`, `sklearn.preprocessing`
+
+---
+
+## 🔹 **6. Data Imputation**
+
+* **Filling missing data with estimated values.**
+* **Techniques:**
+
+  * **Mean/Median/Mode**
+  * **KNN Imputer**
+  * **Multivariate Imputation**
+  * **Forward/Backward Fill (time series)**
+
+---
+
+## 🔹 **7. Handling Missing Data**
+
+* **Strategies:**
+
+  * **Remove rows/columns** with too many missing values
+  * **Imputation** (see above)
+  * **Use indicators** to mark missingness (binary flag)
+  * **Model-based imputation** (predict missing values)
+
+---
+
+## 🔹 **8. Data Reduction**
+
+* **Purpose:** Reduce volume but maintain integrity.
+* **Methods:**
+
+  * **Dimensionality Reduction (PCA, t-SNE)**
+  * **Feature Selection (Lasso, RFE)**
+  * **Sampling**
+  * **Aggregation (e.g., hourly → daily data)**
+
+---
+
+## 🔹 **9. Data Integration**
+
+* **Combining data from multiple sources into a coherent dataset.**
+* **Challenges:**
+
+  * Schema mismatch
+  * Duplicates
+  * Conflicting data
+* **Solutions:**
+
+  * Schema matching
+  * Data fusion techniques
+  * ETL (Extract, Transform, Load) pipelines
+
+---
+
+## 🔹 **10. Data Sampling**
+
+* **Choosing a representative subset of data.**
+* **Types:**
+
+  * **Random Sampling**
+  * **Stratified Sampling:** Ensures class balance
+  * **Systematic Sampling:** Every k-th record
+* **Use Cases:** Faster model training, cross-validation, bootstrapping
