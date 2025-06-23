@@ -1,0 +1,178 @@
+📊 **Machine Learning Evaluation Metrics (Simplified Guide)**
+
+---
+
+### 🔵 **Classification Metrics**
+
+Most metrics are derived from the **confusion matrix**:
+
+* **TP** (True Positive): Correctly predicted positives
+* **TN** (True Negative): Correctly predicted negatives
+* **FP** (False Positive): Incorrectly predicted positives
+* **FN** (False Negative): Incorrectly predicted negatives
+
+---
+
+#### ✅ **1. Accuracy**
+
+* Proportion of correct predictions.
+* **Formula**:
+  `(TP + TN) / Total`
+* ⚠️ Can be misleading on **imbalanced data**.
+
+---
+
+#### ❌ **2. Error Rate (Misclassification Rate)**
+
+* Proportion of incorrect predictions.
+* **Formula**:
+  `(FP + FN) / Total`
+  \= `1 - Accuracy`
+
+---
+
+#### 🎯 **3. Precision (Positive Predictive Value)**
+
+* How many predicted positives are actually positive?
+* **Formula**:
+  `TP / (TP + FP)`
+
+---
+
+#### 🔍 **4. Recall (Sensitivity / TPR)**
+
+* How many actual positives were predicted correctly?
+* **Formula**:
+  `TP / (TP + FN)`
+
+---
+
+#### ⚖️ **5. F1 Score**
+
+* Harmonic mean of Precision and Recall.
+* **Formula**:
+  `2 * (Precision * Recall) / (Precision + Recall)`
+* Useful when **class distribution is imbalanced**.
+
+---
+
+#### 🧠 **6. Specificity (True Negative Rate / TNR)**
+
+* How well the model identifies negatives.
+* **Formula**:
+  `TN / (TN + FP)`
+
+---
+
+#### 🚨 **7. False Positive Rate (FPR)**
+
+* When actually negative, how often it is incorrectly predicted positive.
+* **Formula**:
+  `FP / (FP + TN)`
+  \= `1 - Specificity`
+
+---
+
+#### 🛑 **8. False Negative Rate (FNR)**
+
+* When actually positive, how often it is incorrectly predicted negative.
+* **Formula**:
+  `FN / (FN + TP)`
+  \= `1 - Recall`
+
+---
+
+#### 📈 **9. ROC Curve (Receiver Operating Characteristic)**
+
+* **Plot**: TPR (Recall) vs FPR at various thresholds.
+* A curve closer to top-left = better model.
+
+---
+
+#### 📐 **10. AUC (Area Under the Curve)**
+
+* Summary of the ROC curve.
+* **Range**: 0 to 1
+  (1 = perfect model, 0.5 = random guess)
+
+---
+
+#### 📚 **11. Average Accuracy (Multi-class)**
+
+* Mean of individual class accuracies.
+* Helpful when class imbalance exists in multi-class settings.
+
+---
+
+---
+
+### 🔴 **Regression Metrics**
+
+---
+
+#### ➕ **1. MAE (Mean Absolute Error)**
+
+* Average of absolute errors.
+* Less sensitive to outliers.
+* **Formula**:
+  `mean(|actual - predicted|)`
+
+---
+
+#### ✖️ **2. MSE (Mean Squared Error)**
+
+* Average of squared errors.
+* Penalizes large errors more.
+* **Formula**:
+  `mean((actual - predicted)²)`
+
+---
+
+#### ✅ **3. RMSE (Root Mean Squared Error)**
+
+* Square root of MSE.
+* Interpretable in original units.
+* **Formula**:
+  `sqrt(MSE)`
+
+---
+
+#### 🔄 **4. RMSLE (Root Mean Squared Log Error)**
+
+* Good for exponential growth problems.
+* Less sensitive to large values.
+* Handles zero predictions.
+* **Formula**:
+  `sqrt(mean((log(predicted+1) - log(actual+1))²))`
+
+---
+
+#### 📏 **5. R² Score (Coefficient of Determination)**
+
+* Measures proportion of variance explained.
+* **Range**: -∞ to 1 (1 = perfect prediction)
+* **Formula**:
+  `1 - (RSS / TSS)`
+
+---
+
+#### 🔁 **6. Adjusted R²**
+
+* Adjusts R² for the number of predictors.
+* Useful when comparing models with different number of features.
+
+---
+
+### 🧠 Summary Cheat Sheet
+
+| Metric    | Good For                        | Pitfall/Watch Out                       |
+| --------- | ------------------------------- | --------------------------------------- |
+| Accuracy  | Balanced classification         | Misleading on imbalanced data           |
+| Precision | Reducing false positives        | Can lower recall                        |
+| Recall    | Reducing false negatives        | Can lower precision                     |
+| F1 Score  | Balance between P & R           | Harder to interpret                     |
+| ROC/AUC   | Binary classification quality   | Focuses only on ranking                 |
+| MAE       | Stable regression eval          | Ignores direction of errors             |
+| MSE/RMSE  | Penalizing large errors         | Sensitive to outliers                   |
+| R²        | Regression performance          | Can be negative, inflated by extra vars |
+| Adj. R²   | Comparing models with variables | Assumes linearity                       |
