@@ -1,0 +1,106 @@
+ 🌟 **Dimensionality Reduction**
+
+Process of reducing the number of features/variables to:
+
+* Reduce model complexity
+* Minimize overfitting
+* Improve accuracy and training efficiency
+
+---
+
+### 🔍 **1. Feature Selection**
+
+Selecting a **subset of relevant features** without changing them.
+
+#### 📌 Why?
+
+* Avoids noise/irrelevant data
+* Improves accuracy
+* Reduces training time
+
+#### 📊 **Types of Feature Selection Models**
+
+* **Supervised** (uses output label)
+* **Unsupervised** (doesn't use output label)
+
+---
+
+#### 📁 Supervised Feature Selection Methods
+
+##### a. **Wrapper Methods**
+
+Evaluate subsets of features based on model performance (greedy search).
+
+* **Forward Selection** – Start empty, add features iteratively
+* **Backward Elimination** – Start full, remove least important iteratively
+* **Bi-directional Elimination** – Combines both
+* **Exhaustive Search** – Tries all combinations (computationally expensive)
+* **Recursive Feature Elimination (RFE)** – Recursively removes least important features using model weights
+
+> ✅ High accuracy but **computationally expensive**
+
+---
+
+##### b. **Filter Methods**
+
+Use **statistical tests** to rank and select features **before training**.
+
+* **Information Gain** – Reduction in entropy
+* **Chi-Square Test** – For categorical features
+* **Fisher’s Score** – Supervised technique based on class separation
+* **Missing Value Ratio** – Drop features with missing values above threshold
+* **Correlation Coefficient** – Select features highly correlated with target
+* **Variance Threshold** – Remove low-variance features
+* **Mean Absolute Difference (MAD)** – Similar to variance but without squaring
+* **Dispersion Ratio (AM/GM)** – Higher ratio = better feature
+
+> ✅ Fast & simple, ❌ ignores model interaction
+
+---
+
+##### c. **Embedded Methods**
+
+Feature selection during model training. Combines strengths of filter & wrapper methods.
+
+* **Regularization**:
+
+  * **L1 (Lasso)** – Shrinks irrelevant feature coefficients to 0
+  * **Elastic Net** – Combines L1 & L2
+* **Random Forest Importance** – Tree-based ranking based on impurity reduction
+
+> ✅ Efficient & more accurate than filter, less expensive than wrapper
+
+---
+
+### 🧪 **2. Feature Extraction**
+
+Transforms existing features into new ones (original features may be discarded).
+
+#### 📌 Goal:
+
+* Reduce dimensionality
+* Retain essential information
+* Enhance model performance & visualization
+
+#### 📊 Techniques:
+
+* **PCA (Principal Component Analysis)**
+  Linear technique using eigenvectors; maximizes variance
+* **LDA (Linear Discriminant Analysis)**
+  Supervised; maximizes **class separability**
+* **KPCA (Kernel PCA)**
+  Handles **non-linear** relationships via kernel trick
+
+---
+
+### ✅ **Choosing Between Techniques**
+
+* Use **Feature Selection** when:
+
+  * You want interpretable models
+  * The original features have meaning
+
+* Use **Feature Extraction** when:
+
+  * Reducing redundancy is more important
+  * Visualization or efficiency is needed
