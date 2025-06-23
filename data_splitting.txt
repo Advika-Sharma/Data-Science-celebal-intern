@@ -1,0 +1,63 @@
+📘 **Data Splitting in Machine Learning**
+
+---
+
+### 📌 What is Data Splitting?
+
+**Data Splitting** is the process of dividing a dataset into separate parts for training, validating, and testing a machine learning model.
+
+> 🎯 **Purpose**: Ensures model generalization and reliable evaluation by preventing overfitting.
+
+---
+
+### ⚙️ **How It Works**
+
+Data is typically split into:
+
+1. **Training Set**
+
+   * Used to teach the model patterns and relationships in data.
+   * Must be **representative** and **unbiased**.
+   * Usually makes up **60–80%** of the full dataset.
+
+2. **Validation Set**
+
+   * Used to **tune hyperparameters** and compare multiple model architectures.
+   * Prevents using test data during model tuning.
+   * Helps choose the **best model** before final evaluation.
+   * Typically around **10–20%** of the dataset.
+
+3. **Test Set**
+
+   * Used **only once** after the final model is selected.
+   * Measures the model's ability to generalize on **unseen data**.
+   * Should be **kept separate** from training and validation.
+
+---
+
+### 📊 **Example Use Case**
+
+**Problem**: Classifying gender based on weight and voice pitch
+
+* **Train Set**: Model learns the relation between `weight`, `pitch`, and gender.
+* **Validation Set**: Compare multiple decision trees with different depths/splits.
+* **Test Set**: Check final model accuracy before deployment.
+
+---
+
+### ✅ **Best Practices**
+
+* Always **split randomly** to avoid bias.
+* Ensure **class balance** in all subsets (especially in classification tasks).
+* Don’t use test data during training or validation.
+* If data is limited, use **cross-validation** to simulate validation performance.
+
+---
+
+### 📌 **Summary Takeaways**
+
+* Data splitting is a **critical step** in the ML pipeline.
+* Split into **train**, **validation**, and **test** sets.
+* Training data helps **learn**, validation helps **tune**, and test helps **evaluate**.
+* Validation prevents overfitting; test ensures **real-world performance**.
+* Use **test set only once** for unbiased final evaluation.
