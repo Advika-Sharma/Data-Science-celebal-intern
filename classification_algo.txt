@@ -1,0 +1,160 @@
+## 🧠 **Top 5 Classification Algorithms in Machine Learning**
+
+**Updated: 22 Nov, 2023 | Author: Gaurav Sharma**
+
+### ✅ What is Classification?
+
+Classification is a supervised learning task where the model predicts a **label** (category/class) for input data.
+
+* **Types**:
+
+  * **Binary Classification** – 2 classes (e.g., spam/not spam)
+  * **Multiclass Classification** – More than 2 classes (e.g., iris flower types)
+  * **Multilabel Classification** – Each instance can belong to multiple classes
+
+---
+
+### 🌼 **Dataset Used: Iris Dataset**
+
+* 150 samples
+* 4 features
+* 3 classes: `Setosa`, `Versicolor`, `Virginica`
+* No null values
+
+---
+
+## 🔢 **1. Logistic Regression**
+
+* **Used for**: Binary/multiclass classification using a sigmoid function.
+* **Pros**:
+
+  * Simple, efficient
+  * Outputs class probabilities
+* **Cons**:
+
+  * Poor with many categorical features
+  * Assumes feature independence
+
+**Code**:
+
+```python
+from sklearn.linear_model import LogisticRegression
+model = LogisticRegression()
+model.fit(X_train, y_train)
+pred = model.predict(X_test)
+```
+
+---
+
+## 🧮 **2. Naive Bayes**
+
+* **Based on**: Bayes’ Theorem assuming feature independence
+* **Types**: Gaussian, Multinomial, Bernoulli
+* **Pros**:
+
+  * Fast and efficient
+  * Performs well with small data
+* **Cons**:
+
+  * Unrealistic independence assumption
+
+**Code**:
+
+```python
+from sklearn.naive_bayes import GaussianNB
+model = GaussianNB()
+model.fit(X_train, y_train)
+pred = model.predict(X_test)
+```
+
+---
+
+## 📍 **3. K-Nearest Neighbors (KNN)**
+
+* **Concept**: Classifies based on majority vote of nearest K neighbors using distance metrics (e.g., Euclidean).
+* **Pros**:
+
+  * Easy to understand
+  * No training phase
+  * Versatile (used for classification/regression)
+* **Cons**:
+
+  * Slow with large datasets
+  * Sensitive to irrelevant features
+
+**Code**:
+
+```python
+from sklearn.neighbors import KNeighborsClassifier
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(X_train, y_train)
+pred = model.predict(X_test)
+```
+
+---
+
+## 🧱 **4. Support Vector Machine (SVM)**
+
+* **Concept**: Finds the best hyperplane that separates classes.
+* **Uses kernel trick** to handle non-linear data
+* **Pros**:
+
+  * Works well with high-dimensional data
+  * Effective when clear margin exists
+* **Cons**:
+
+  * Computationally expensive for large datasets
+  * Poor with overlapping classes/noise
+
+**Code**:
+
+```python
+from sklearn import svm
+model = svm.SVC()
+model.fit(X_train, y_train)
+pred = model.predict(X_test)
+```
+
+---
+
+## 🌳 **5. Decision Tree**
+
+* **Concept**: Tree-like structure with conditions at nodes and class outcomes at leaves.
+* **Pros**:
+
+  * No need for normalization
+  * Easy to interpret and visualize
+* **Cons**:
+
+  * Prone to overfitting
+  * Sensitive to small data changes
+
+**Code**:
+
+```python
+from sklearn.tree import DecisionTreeClassifier
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train)
+pred = model.predict(X_test)
+```
+
+---
+
+## 🤔 **Conclusion**
+
+These algorithms offer a solid foundation in classification tasks.
+
+* **Start simple** with Logistic Regression or KNN
+* Use **Naive Bayes** for speed
+* **SVM** for high dimensional data
+* **Decision Trees** for interpretability
+
+---
+
+## ❓FAQs
+
+| Question                                                             | Answer                                                         |
+| -------------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Q1. Which algorithms are used in classification for data mining?** | Logistic Regression, Naive Bayes, KNN, SVM, Decision Tree      |
+| **Q2. What are classification algorithms in ML?**                    | Algorithms used to categorize data into labeled classes        |
+| **Q3. Classification in image processing?**                          | Categorizing image data using algorithms like CNN, SVM, or KNN |
