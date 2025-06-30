@@ -1,0 +1,148 @@
+## 📘 **Regression Techniques in Machine Learning**
+### ✅ **What is Regression?**
+
+#Regression is a supervised learning technique used to model the relationship between a **dependent (target)** and one or more **independent (predictor)** variables.
+## 🧠 **Key Regression Techniques**
+
+### 1. **Linear Regression**
+
+  from sklearn.linear_model import LinearRegression
+  model = LinearRegression()
+  model.fit(X, y)
+  y_pred = model.predict(X_new)
+  ```
+
+---
+
+### 2. **Polynomial Regression**
+
+* **Use**: Extends linear regression to fit non-linear relationships.
+* **Code**:
+
+  ```python
+  from sklearn.preprocessing import PolynomialFeatures
+  from sklearn.linear_model import LinearRegression
+  poly = PolynomialFeatures(degree=2)
+  X_poly = poly.fit_transform(X)
+  model = LinearRegression().fit(X_poly, y)
+  y_pred = model.predict(poly.transform(X_new))
+  ```
+
+---
+
+### 3. **Stepwise Regression**
+
+* **Use**: Automatic feature selection using forward, backward, or bidirectional elimination.
+* **Note**: No direct `StepwiseLinearRegression` in `sklearn`. Requires manual implementation or `statsmodels`.
+
+---
+
+### 4. **Decision Tree Regression**
+
+* **Use**: Non-parametric, tree-based model for continuous outputs.
+* **Code**:
+
+  ```python
+  from sklearn.tree import DecisionTreeRegressor
+  model = DecisionTreeRegressor()
+  model.fit(X, y)
+  y_pred = model.predict(X_new)
+  ```
+
+---
+
+### 5. **Random Forest Regression**
+
+* **Use**: Ensemble of decision trees; reduces overfitting.
+* **Code**:
+
+  ```python
+  from sklearn.ensemble import RandomForestRegressor
+  model = RandomForestRegressor(n_estimators=100)
+  model.fit(X, y)
+  y_pred = model.predict(X_new)
+  ```
+
+---
+
+### 6. **Support Vector Regression (SVR)**
+
+* **Use**: Based on SVM, handles both linear and non-linear relationships.
+* **Code**:
+
+  ```python
+  from sklearn.svm import SVR
+  model = SVR(kernel='linear')  # or 'rbf', 'poly'
+  model.fit(X, y)
+  y_pred = model.predict(X_new)
+  ```
+
+---
+
+### 7. **Ridge Regression**
+
+* **Use**: Adds L2 penalty to reduce model complexity and multicollinearity.
+* **Cost Function**: `min ||y - Xβ||² + λ||β||²`
+* **Code**:
+
+  ```python
+  from sklearn.linear_model import Ridge
+  model = Ridge(alpha=0.1)
+  model.fit(X, y)
+  y_pred = model.predict(X_new)
+  ```
+
+---
+
+### 8. **Lasso Regression**
+
+* **Use**: Adds L1 penalty, useful for feature selection (some coefficients become 0).
+* **Code**:
+
+  ```python
+  from sklearn.linear_model import Lasso
+  model = Lasso(alpha=0.1)
+  model.fit(X, y)
+  y_pred = model.predict(X_new)
+  ```
+
+---
+
+### 9. **ElasticNet Regression**
+
+* **Use**: Combines Ridge and Lasso (L1 + L2) penalties.
+* **Code**:
+
+  ```python
+  from sklearn.linear_model import ElasticNet
+  model = ElasticNet(alpha=0.1, l1_ratio=0.5)
+  model.fit(X, y)
+  y_pred = model.predict(X_new)
+  ```
+
+---
+
+### 10. **Bayesian Linear Regression**
+
+* **Use**: Probabilistic model based on Bayes’ theorem; gives uncertainty estimates.
+* **Note**: Use `BayesianRidge` from `sklearn` (not `BayesianLinearRegression`).
+* **Code**:
+
+  ```python
+  from sklearn.linear_model import BayesianRidge
+  model = BayesianRidge()
+  model.fit(X, y)
+  y_pred = model.predict(X_new)
+  ```
+
+---
+
+## ❓ **FAQs**
+
+| Question                        | Answer                                                      |
+| ------------------------------- | ----------------------------------------------------------- |
+| **2 Main Types of Regression?** | Linear & Logistic Regression                                |
+| **Variables in Regression?**    | Independent & Dependent                                     |
+| **Why called Regression?**      | Term from Galton’s work on heredity: regression to the mean |
+| **How to Calculate?**           | Commonly via Gradient Descent                               |
+| **Why use Regression?**         | To understand/predict relationships between variables       |
