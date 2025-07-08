@@ -1,0 +1,92 @@
+ 1. 🎯 **Overfitting vs Underfitting**
+
+* **Underfitting**: Model too simplistic → high bias, error on training and test sets.
+* **Overfitting**: Model too complex → low training error, but poor generalization (high variance).
+* **Goal of regularization**: Add constraints to improve generalization by balancing bias and variance.
+
+---
+
+## 2. 🛠️ **What is Regularization?**
+
+* A technique to **penalize large weights** in models, discouraging complexity.
+* Helps reduce variance by keeping parameter magnitudes small.
+
+---
+
+## 3. 🔢 **L2 Regularization (Ridge Regression)**
+
+* Adds **lambda \* Σ wᵢ²** to the loss function.
+* Effect: Shrinks weights **gradually** but none actually go to zero.
+* Best for addressing multicollinearity and when most features are relevant.
+
+**Loss function:**
+
+$$
+J = \frac{1}{n}\sum (y - ŷ)^{2} + \lambda \sum w_i^2
+$$
+
+---
+
+## 4. ✂️ **L1 Regularization (Lasso Regression)**
+
+* Adds **lambda \* Σ |wᵢ|** to the loss function.
+* Effect: Encourages **sparse** solutions by driving some weights to **exactly zero** → feature selection.
+* Useful when there's a belief that only a subset of features matter.
+
+**Loss function:**
+
+$$
+J = \frac{1}{n}\sum (y - ŷ)^{2} + \lambda \sum |w_i|
+$$
+
+---
+
+## 5. 🧭 **Choosing Between L1 and L2**
+
+* **L2 (Ridge)**: Best when most features contribute; smooth shrinkage.
+* **L1 (Lasso)**: Best when only some features are useful; does feature selection.
+* **Elastic Net**: Combines both L1 and L2—useful when you want both shrinkage and sparsity.
+
+---
+
+## 6. ⚙️ **Workflow Overview**
+
+1. **Train on data** with varying λ (regularization strength).
+2. **Monitor error**:
+
+   * Too low λ → overfitting
+   * Too high λ → underfitting
+3. **Use cross-validation** to choose optimal λ.
+4. **Inspect weights**:
+
+   * Lasso will zero out some weights
+   * Ridge will shrink them all
+
+---
+
+## 7. 🧪 **Python Example Sketch** *(not in the video, but typical flow)*
+
+```python
+from sklearn.linear_model import Ridge, Lasso
+from sklearn.model_selection import GridSearchCV
+
+param_grid = {'alpha': [0.01, 0.1, 1, 10, 100]}
+ridge = GridSearchCV(Ridge(), param_grid, cv=5)
+lasso = GridSearchCV(Lasso(), param_grid, cv=5)
+
+ridge.fit(X_train, y_train)
+lasso.fit(X_train, y_train)
+
+print("Best Ridge alpha:", ridge.best_params_)
+print("Best Lasso alpha:", lasso.best_params_)
+```
+
+---
+
+## ✅ **Summary**
+
+* **Regularization** prevents overfitting by penalizing large weights.
+* **L2 (Ridge)** shrinks all weights smoothly.
+* **L1 (Lasso)** drives some weights to zero → built-in feature selection.
+* Choose λ via cross-validation.
+* Elastic Net offers a mix of both advantages.
