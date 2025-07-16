@@ -1,0 +1,111 @@
+### 🔹 **SQL Commands – Overview**
+
+SQL (Structured Query Language) commands are used to interact with relational databases for tasks like creating tables, modifying data, managing permissions, and handling transactions. These commands are classified into **five main categories**:
+
+---
+
+### 🔸 **1. DDL (Data Definition Language)**
+
+Used to define and manage **database structure**.
+**Key Commands:**
+
+* `CREATE`: Create objects like tables
+* `DROP`: Delete objects
+* `ALTER`: Modify table structure
+* `TRUNCATE`: Remove all records from a table
+* `COMMENT`: Add metadata
+* `RENAME`: Rename objects
+
+🧾 *Example:*
+
+```sql
+CREATE TABLE employees (
+  employee_id INT PRIMARY KEY,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  hire_date DATE
+);
+```
+
+---
+
+### 🔸 **2. DQL (Data Query Language)**
+
+Used to **retrieve data** from the database.
+**Key Command:**
+
+* `SELECT`: Query data from tables
+
+🧾 *Example:*
+
+```sql
+SELECT first_name, last_name FROM employees WHERE department = 'Sales';
+```
+
+---
+
+### 🔸 **3. DML (Data Manipulation Language)**
+
+Deals with **inserting, updating, and deleting data**.
+**Key Commands:**
+
+* `INSERT`: Add data
+* `UPDATE`: Modify existing data
+* `DELETE`: Remove data
+* `LOCK`, `CALL`, `EXPLAIN PLAN`: Advanced operations
+
+🧾 *Example:*
+
+```sql
+INSERT INTO employees (first_name, last_name, department)
+VALUES ('Jane', 'Smith', 'HR');
+```
+
+---
+
+### 🔸 **4. DCL (Data Control Language)**
+
+Used for **access control and permission management**.
+**Key Commands:**
+
+* `GRANT`: Give access
+* `REVOKE`: Remove access
+
+🧾 *Example:*
+
+```sql
+GRANT SELECT, UPDATE ON employees TO user_name;
+```
+
+---
+
+### 🔸 **5. TCL (Transaction Control Language)**
+
+Manages **transactions** to ensure data integrity.
+**Key Commands:**
+
+* `BEGIN`, `COMMIT`, `ROLLBACK`, `SAVEPOINT`
+
+🧾 *Example:*
+
+```sql
+BEGIN;
+UPDATE employees SET department = 'IT' WHERE department = 'HR';
+ROLLBACK;
+COMMIT;
+```
+
+---
+
+### ✅ **Most Common SQL Commands**
+
+* `SELECT`, `INSERT`, `UPDATE`, `DELETE`
+* `CREATE TABLE`, `ALTER TABLE`, `DROP TABLE`, `TRUNCATE TABLE`
+* `WHERE`, `ORDER BY`, `GROUP BY`, `HAVING`, `JOIN`
+* `DISTINCT`, `IN`, `BETWEEN`, `LIKE`, `UNION`
+
+---
+
+### 📝 **Conclusion**
+
+Understanding SQL command categories—DDL, DML, DQL, DCL, and TCL—is essential for effective database management. Mastering their syntax and use cases empowers developers and analysts to manage data efficiently and securely.
