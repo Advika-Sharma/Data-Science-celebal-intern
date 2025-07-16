@@ -1,0 +1,80 @@
+## 🧠 What is SQL Server?
+
+Microsoft SQL Server is a relational database management system (RDBMS) that uses Transact‑SQL (T‑SQL)—Microsoft’s SQL extension—for storing, querying, and managing data ([SQL Server Tutorial][1], [Wikipedia][2]).
+
+---
+
+## 📘 Key Topics Covered in SQL Server Basics
+
+### 1. **SELECT – Querying Data**
+
+* Introduces the `SELECT` statement for retrieving rows from a table.
+* Covers basic clauses like `SELECT`, `FROM`, `WHERE`, `ORDER BY`.
+* Focuses on querying single tables ([SQL Server Tutorial][3]).
+
+---
+
+### 2. **Data Types**
+
+* Overview of SQL Server’s native data types: numeric, character, binary, date/time, and more ([SQL Server Tutorial][4]).
+
+---
+
+### 3. **CREATE DATABASE**
+
+* How to create a new SQL Server database using `CREATE DATABASE` via T‑SQL or SQL Server Management Studio ([SQL Server Tutorial][5]).
+
+---
+
+### 4. **Temporary Tables**
+
+* Explains how to create and use temporary tables (`#temp`), including session scope and cleanup ([SQL Server Tutorial][6]).
+
+---
+
+### 5. **IN Operator**
+
+* Usage of the `IN` operator to filter results by matching values within a list or subquery ([SQL Server Tutorial][7]).
+
+---
+
+### 6. **Joins**
+
+* Visual and conceptual explanation of the various `JOIN` types (INNER, LEFT, RIGHT, FULL) used to combine rows from multiple tables ([SQL Server Tutorial][8]).
+
+---
+
+### 7. **Transactions**
+
+* Basics of SQL Server transactions using T‑SQL: using `BEGIN`, `COMMIT`, and `ROLLBACK` to ensure data integrity ([SQL Server Tutorial][9]).
+
+---
+
+## 🛠️ Beyond the Basics
+
+While the Basics section focuses on starting out with querying and simple operations, SQLServerTutorial also offers advanced tutorials on:
+
+* Stored Procedures ([SQL Server Tutorial][10])
+* Administration tools, indexing, replication, reporting, and analytics via T‑SQL and SSMS&#x20;
+
+---
+
+## ✅ Summary Table
+
+| Topic                | Highlights                                                       |
+| -------------------- | ---------------------------------------------------------------- |
+| **SELECT**           | Retrieve data using clauses like `WHERE`, `ORDER BY`.            |
+| **Data Types**       | Understand types: INT, VARCHAR, DATETIME, etc.                   |
+| **CREATE DATABASE**  | Set up new databases using T‑SQL or GUI.                         |
+| **Temporary Tables** | Use `#temp` tables for session-scoped intermediate data.         |
+| **IN Operator**      | Filter using lists or results from subqueries.                   |
+| **Joins**            | Merge data from multiple tables using JOIN types.                |
+| **Transactions**     | Ensure atomic operations with `BEGIN`, `COMMIT`, and `ROLLBACK`. |
+
+---
+
+## ✅ Why It Matters
+
+* Builds a **strong foundation** in SQL Server querying and basic database schema handling.
+* Prepares you for more **advanced topics** like stored procedures, indexing, and performance tuning.
+
