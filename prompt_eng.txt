@@ -1,0 +1,77 @@
+### 🔍 **What Is Prompt Engineering Guide?**
+
+A comprehensive, community-driven resource created by **DAIR.AI** dedicated to **prompt engineering**—the art and science of crafting effective prompts to work with Large Language Models (LLMs). It focuses on optimizing user interactions with LLMs across applications, research, tools, and best practices ([Prompting Guide][1]).
+
+---
+
+### 🧩 **Key Components**
+
+* **Learning Materials**
+  Organised sections include *Papers*, *Tools*, *Notebooks*, *Datasets*, and additional readings—all updated frequently ([Prompting Guide][1]).
+
+* **Intro & Theory**
+  It frames prompt engineering as essential for understanding LLM capabilities and safety, covering both theory and practical examples—mostly tested with GPT-3.5‑turbo ([Prompting Guide][2]).
+
+---
+
+### 📚 **Research & Papers**
+
+* Curated collection of recent and influential studies on prompt techniques, including Chain‑of‑Thought, prompt tuning, hallucination, retrieval‑augmented generation, and more ([Wikipedia][3]).
+* Highlights include:
+
+  * *The Prompt Report* (June 2024)
+  * Chain‑of‑Thought prompting breakthroughs
+  * RAG and retrieval-based prompting methods ([Prompting Guide][4], [Wikipedia][3]).
+
+---
+
+### 🛠️ **Advanced Topics**
+
+* **Agents**: Building language-agent patterns using graph prompting ([Prompting Guide][5]).
+* **Risks & Misuses**: Awareness of prompt injection, bias, factuality, and mitigation via safety tools ([Prompting Guide][6]).
+* **LLM Applications & Guides**: Deep dives into context engineering, fine-tuning models like GPT‑4o ([Prompting Guide][7]).
+
+---
+
+### 🎓 **Learning & Courses**
+
+* Offers free-to-access guides and notebooks.
+* Features paid DAIR.AI Academy courses (e.g., prompt engineering, agents) with a discount code **PROMPTING20** ([OpenAI Platform][8], [Prompting Guide][1]).
+
+---
+
+### ⚙️ **Methods & Techniques Covered**
+
+* **In‑Context & Few‑Shot Learning**: Teaching via examples ([Wikipedia][3]).
+* **Chain‑of‑Thought**: Encouraging models to reason step-by-step ([Wikipedia][3]).
+* **RAG**: Integrating retrieval for improved factual accuracy ([Wikipedia][3]).
+
+Also presents emerging methods like **Tree‑of‑Thought**, prefix tuning, and automatic prompt generation ([Wikipedia][3]).
+
+---
+
+### ✅ **Why It Matters**
+
+* Helps researchers and developers enhance **LLM performance**, **safety**, and **tool integration**.
+* Bridges the gap between **zero-shot prompting**, **fine-tuning**, and **hybrid retrieval approaches**.
+* Acts as an evolving hub: regularly maintained and updated with cutting-edge material.
+
+---
+
+### 🧭 **Overview Table**
+
+| Section             | Description                                                                                             |
+| ------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Introduction**    | Defines prompt engineering and its relevance ([Reddit][9], [Prompting Guide][4], [Prompting Guide][2])  |
+| **Papers**          | Curated list of current prompt engineering research ([Prompting Guide][4])                              |
+| **Tools/Notebooks** | Practical assets to test and implement prompts                                                          |
+| **Applications**    | Advanced use cases like context engineering and agent-based prompting ([Prompting Guide][7])            |
+| **Risks**           | Safety issues and mitigation strategies ([Prompting Guide][6])                                          |
+| **Courses**         | Paid and free learning opportunities with DAIR.AI Academy ([Prompting Guide][1], [Prompting Guide][10]) |
+
+---
+
+### 🎯 **Bottom Line**
+
+*Promptingguide.ai* is a premier, evolving toolkit for mastering prompt engineering—combining scholarly depth with hands-on application. Whether you're researching LLM reasoning or deploying robust LLM-powered tools, it's a go-to resource.
+
