@@ -1,0 +1,158 @@
+## 🧠 What is Pinecone?
+
+Pinecone is a **vector database** optimized for **semantic search** using dense vector representations of text or other data. It supports operations like upserting (adding) vectors, querying for nearest neighbors, reranking results, and filtering with metadata.
+
+---
+
+## 🪜 Step-by-Step Guide
+
+---
+
+### **1. Install Pinecone SDK**
+
+Install the Python SDK via pip:
+
+```bash
+pip install pinecone
+```
+
+---
+
+### **2. Get an API Key**
+
+* Sign up at Pinecone.io to get an API key.
+* Required to authenticate with Pinecone services:
+
+```python
+from pinecone import Pinecone
+pc = Pinecone(api_key="{{YOUR_API_KEY}}")
+```
+
+---
+
+### **3. Create an Index**
+
+* Index is a storage container for vector data.
+* Create a **dense index** integrated with Pinecone’s internal **embedding model** (`llama-text-embed-v2`).
+
+```python
+index_name = "quickstart-py"
+if not pc.has_index(index_name):
+    pc.create_index_for_model(
+        name=index_name,
+        cloud="aws",
+        region="us-east-1",
+        embed={
+            "model": "llama-text-embed-v2",
+            "field_map": {"text": "chunk_text"}
+        }
+    )
+```
+
+You can also bring your own embeddings if using external models.
+
+---
+
+### **4. Upsert Text Records**
+
+Prepare your dataset: a list of dictionary records, each with:
+
+* `_id`: unique ID
+* `chunk_text`: text content
+* `category`: metadata (optional)
+
+Example:
+
+```python
+records = [
+  { "_id": "rec1", "chunk_text": "The Eiffel Tower was completed in 1889...", "category": "history" },
+  ...
+]
+```
+
+Upsert records into a **namespace**:
+
+```python
+dense_index = pc.Index(index_name)
+dense_index.upsert_records("example-namespace", records)
+```
+
+Check index stats:
+
+```python
+stats = dense_index.describe_index_stats()
+print(stats)
+```
+
+---
+
+### **5. Perform Semantic Search**
+
+Query with natural language (no manual embeddings required if using Pinecone’s model):
+
+```python
+query = "Famous historical structures and monuments"
+
+results = dense_index.search(
+    namespace="example-namespace",
+    query={
+        "top_k": 10,
+        "inputs": { "text": query }
+    }
+)
+```
+
+Display results:
+
+```python
+for hit in results['result']['hits']:
+    print(f"id: {hit['_id']}, score: {round(hit['_score'], 2)}, text: {hit['fields']['chunk_text']}, category: {hit['fields']['category']}")
+```
+
+📌 *Note*: Results may include some irrelevant entries due to limits in embedding accuracy.
+
+---
+
+### **6. Rerank Results**
+
+Use a **reranker model** (like `bge-reranker-v2-m3`) to improve the order of results based on relevance:
+
+```python
+reranked_results = dense_index.search(
+    namespace="example-namespace",
+    query={
+        "top_k": 10,
+        "inputs": { "text": query }
+    },
+    rerank={
+        "model": "bge-reranker-v2-m3",
+        "top_n": 10,
+        "rank_fields": ["chunk_text"]
+    }
+)
+```
+
+Now the **most relevant results** appear at the top.
+
+---
+
+### **7. Improve Search Accuracy**
+
+Additional techniques:
+
+* **Filtering by metadata**: Narrow results using fields like category.
+* **Hybrid search**: Combine **semantic + lexical** (keyword) search.
+* **Chunking strategies**: Adjust text chunk size for better granularity.
+
+---
+
+### **8. Clean Up**
+
+Delete your index after use:
+
+```python
+pc.delete_index(index_name)
+```
+
+Production indexes can enable deletion protection for safety.
+
