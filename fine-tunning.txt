@@ -1,0 +1,85 @@
+### 🔧 What is Fine-Tuning?
+
+Fine-tuning means adapting a pretrained model (like BERT) to a specific task (e.g., sentiment classification) using a smaller, task-specific dataset. It’s more efficient than training from scratch.
+
+---
+
+### 🧪 Dataset Preparation
+
+* **Dataset used**: `yelp_review_full`
+* **Tokenizer**: `google-bert/bert-base-cased`
+* Use `tokenizer()` with padding and truncation.
+* Preprocess with `map()` for batched tokenization.
+* Use a **small subset** (e.g., 1000 samples) to quickly test.
+
+---
+
+### 🧠 Model Loading
+
+* Load model:
+
+  ```python
+  AutoModelForSequenceClassification.from_pretrained(..., num_labels=5)
+  ```
+* BERT’s classification head is re-initialized and must be trained.
+
+---
+
+### ⚙️ Define Evaluation Metric
+
+* Load metric:
+
+  ```python
+  metric = evaluate.load("accuracy")
+  ```
+* Define `compute_metrics()` using `np.argmax()` on logits.
+
+---
+
+### 🏗 TrainingArguments Setup
+
+```python
+training_args = TrainingArguments(
+    output_dir="yelp_review_classifier",
+    eval_strategy="epoch",
+    push_to_hub=True
+)
+```
+
+---
+
+### 🏋️ Training with `Trainer`
+
+```python
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=small_train,
+    eval_dataset=small_eval,
+    compute_metrics=compute_metrics
+)
+trainer.train()
+trainer.push_to_hub()
+```
+
+---
+
+### 🧵 TensorFlow Support
+
+For TensorFlow models:
+
+* Use `TFAutoModelForSequenceClassification`
+* Convert dataset with `prepare_tf_dataset()`
+* Compile and train using:
+
+```python
+model.compile(optimizer=Adam(3e-5))
+model.fit(tf_dataset)
+```
+
+---
+
+### 📚 Resources
+
+* Use Hugging Face **examples** and **notebooks** for more tasks and training setups.
+* Recommended: Use `Trainer` for PyTorch and `Keras` for TensorFlow.
